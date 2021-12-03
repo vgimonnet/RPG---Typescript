@@ -15,11 +15,15 @@ export default abstract class Champion implements IChampion {
   }
 
   attack<T extends Champion>(champion: T): void {
-    this.isProtected = false;
-    if (champion.health > 0) {
-      champion.getDamage(this);
+    if (JSON.stringify(champion) !== JSON.stringify(this)) {
+      this.isProtected = false;
+      if (champion.health > 0) {
+        champion.getDamage(this);
+      } else {
+        console.log('Champion is already dead');
+      }
     } else {
-      console.log('Champion is already dead');
+      console.log('Champion could not attacks himself');
     }
   }
 
