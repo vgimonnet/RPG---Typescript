@@ -15,6 +15,7 @@ export default abstract class Champion implements IChampion {
   }
 
   attack<T extends Champion>(champion: T): void {
+    this.isProtected = false;
     if (champion.health > 0) {
       champion.getDamage(this);
     } else {
