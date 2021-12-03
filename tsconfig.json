@@ -4,8 +4,15 @@
     "target": "ES5",
     "noEmitOnError": true,
     "strict": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "baseUrl":".",
   },
+  "include": [
+    "./**/*",
+  ],
+  "exclude": [
+    "node_modules"
+  ],
   "files": [
     "src/index.ts"
   ]
