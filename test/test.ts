@@ -122,6 +122,15 @@ describe('Sorcerer', () => {
     expect(sorcerer.health).toBe(90);
   });
 
+  test('Can\'t heal while dead', () => {
+    sorcerer = new Sorcerer('Gandalf', 10, 14);
+    knight.attack(sorcerer);
+    knight.attack(sorcerer);
+    knight.attack(sorcerer);
+    sorcerer.heal();
+    expect(sorcerer.health).toBe(0);
+  });
+
   test('Half healing', () => {
     sorcerer.protect();
     knight.attack(sorcerer);
