@@ -1,6 +1,8 @@
 import Champion from "./champion.class";
 
 export default class Sorcerer extends Champion {
+  type: string = 'Sorcerer';
+  
   heal(): void {
     if (this.health <= 0) {
       console.log('You\'re dead, you cannot heal')

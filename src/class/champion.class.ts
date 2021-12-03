@@ -6,6 +6,7 @@ export default abstract class Champion implements IChampion {
   maxHealth: number;
   name: string;
   isProtected: boolean;
+  type: string = 'Champion';
 
   constructor(name: string, strength: number, health: number) {
     this.name = name;

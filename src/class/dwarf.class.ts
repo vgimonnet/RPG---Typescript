@@ -1,6 +1,8 @@
 import Champion from "./champion.class";
 
 export default class Dwarf extends Champion {
+  type: string = 'Dwarf';
+  
   getDamage<T extends Champion>(champion: T) {
     if (this.isProtected) {
       this.attack(champion);
