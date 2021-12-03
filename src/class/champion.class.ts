@@ -15,7 +15,7 @@ export default abstract class Champion implements IChampion {
 
   attack<T extends Champion>(champion: T): void {
     if (champion.health > 0) {
-      champion.getDamage(this.strength);
+      champion.getDamage(this);
     } else {
       console.log('Champion is already dead');
     }
@@ -25,11 +25,11 @@ export default abstract class Champion implements IChampion {
     this.isProtected = true;
   }
 
-  getDamage(strength: number): void {
-    if (this.isProtected && (this.health - strength/2) >= 0) {
-      this.health -= strength/2;
-    } else if (!this.isProtected && (this.health - strength) >= 0) {
-      this.health -= strength;
+  getDamage<T extends Champion>(champion: T): void {
+    if (this.isProtected && (this.health - champion.strength/2) >= 0) {
+      this.health -= champion.strength/2;
+    } else if (!this.isProtected && (this.health - champion.strength) >= 0) {
+      this.health -= champion.strength;
     } else {
       this.health = 0;
     }
