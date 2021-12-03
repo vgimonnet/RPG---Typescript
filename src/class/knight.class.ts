@@ -7,7 +7,7 @@ export default class Knight extends Champion {
     if (!this.isProtected && (this.health - champion.strength) > 0) {
       this.health -= champion.strength;
     } else if (this.isProtected) {
-      console.log('Knight was protected');
+      console.log(`${this.name} was protected`);
     } else {
       this.health = 0;
     }

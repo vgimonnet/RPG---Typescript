@@ -128,7 +128,7 @@ let isEnded: boolean = false;
           var championICanAttack: any = [];
           for (let j: number = 0; j < champions.length; j++) {
             if (j !== i) {
-              championICanAttack.push({ title: champions[i].name, value: j })
+              championICanAttack.push({ title: champions[j].name, value: j })
             }        
           }
           
@@ -173,7 +173,5 @@ let isEnded: boolean = false;
       isEnded = true;
     }    
   } while (!isEnded);
-  
-
 
 })();
