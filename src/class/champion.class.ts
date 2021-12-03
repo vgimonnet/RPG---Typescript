@@ -9,8 +9,8 @@ export default abstract class Champion implements IChampion {
 
   constructor(name: string, strength: number, health: number) {
     this.name = name;
-    this.strength = strength;
-    this.health = this.maxHealth = health;
+    this.strength = Math.abs(strength);
+    this.health = this.maxHealth = Math.abs(health);
     this.isProtected = false;
   }
 
