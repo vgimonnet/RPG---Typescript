@@ -3,13 +3,14 @@ import IChampion from './champion.interface';
 export default abstract class Champion implements IChampion {
   strength: number;
   health: number;
+  maxHealth: number;
   name: string;
   isProtected: boolean;
 
   constructor(name: string, strength: number, health: number) {
     this.name = name;
     this.strength = strength;
-    this.health = health;
+    this.health = this.maxHealth = health;
     this.isProtected = false;
   }
 

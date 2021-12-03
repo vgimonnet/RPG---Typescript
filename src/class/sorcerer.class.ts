@@ -2,6 +2,10 @@ import Champion from "./champion.class";
 
 export default class Sorcerer extends Champion {
   heal(): void {
-    this.health += 10;
+    if (this.health + 10 < this.maxHealth) {
+      this.health += 10;
+    } else {
+      this.health = this.maxHealth;
+    }
   }
 }
