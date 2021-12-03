@@ -14,15 +14,9 @@ export default abstract class Champion {
     this.isProtected = false;
   }
 
-  attack(champion: Champion, nbAttack: number = 1): void {
-    if (champion.health <= 0) {
-      if (champion instanceof Archer && nbAttack > 1) {
-        for (let i: number = 0; i < nbAttack; i++) {
-          champion.getDamage(this.strength);      
-        }
-      } else {
-        champion.getDamage(this.strength);
-      }    
+  attack<T extends Champion>(champion: T): void {
+    if (champion.health > 0) {
+      champion.getDamage(this.strength);
     } else {
       console.log('Champion is already dead');
     }
@@ -33,11 +27,14 @@ export default abstract class Champion {
   }
 
   getDamage(strength: number): void {
-    if (this.isProtected && (this.health -strength/2) >= 0) {
+    if (this.isProtected && (this.health - strength/2) >= 0) {
+      console.log('ici')
       this.health -= strength/2;
-    } else if (!this.isProtected && (this.health -strength) >= 0) {
+    } else if (!this.isProtected && (this.health - strength) >= 0) {
+      console.log('la')
       this.health -= strength;
     } else {
+      console.log('ui')
       this.health = 0;
     }
 

@@ -7,5 +7,7 @@ export default class Knight extends Champion {
     } else {
       console.log('Knight was protected');
     }
+
+    this.isProtected = false;
   }
 }
