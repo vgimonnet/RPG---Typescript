@@ -2,5 +2,5 @@
 
 ## Equipe
 
-> Noblet Corentin
-> Gimonnet Valentin
+- Noblet Corentin
+- Gimonnet Valentin
