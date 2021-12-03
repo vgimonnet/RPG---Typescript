@@ -1,11 +1,10 @@
-import Archer from "./archer.class";
+import IChampion from './champion.interface';
 
-export default abstract class Champion {
+export default abstract class Champion implements IChampion {
   strength: number;
   health: number;
   name: string;
   isProtected: boolean;
-
 
   constructor(name: string, strength: number, health: number) {
     this.name = name;
