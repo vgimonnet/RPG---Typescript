@@ -44,9 +44,12 @@ let isEnded: boolean = false;
   do {
     const howManyPlayers: any = await prompts([
       {
-        type: 'text',
+        type: 'number',
         name: 'howManyPlayers',
-        message: `How many players are you ? (2 required)`
+        message: `How many players are you ? (2 required)`,
+        initial: 0,
+        min: 2,
+        max: 10
       }
     ]);
     if (Number.isInteger(parseInt(howManyPlayers.howManyPlayers))) {
