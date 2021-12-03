@@ -28,13 +28,10 @@ export default abstract class Champion {
 
   getDamage(strength: number): void {
     if (this.isProtected && (this.health - strength/2) >= 0) {
-      console.log('ici')
       this.health -= strength/2;
     } else if (!this.isProtected && (this.health - strength) >= 0) {
-      console.log('la')
       this.health -= strength;
     } else {
-      console.log('ui')
       this.health = 0;
     }
 
