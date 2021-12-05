@@ -18,8 +18,10 @@ export default abstract class Champion implements IChampion {
   attack<T extends Champion>(champion: T): void {
     if (JSON.stringify(champion) !== JSON.stringify(this)) {
       this.isProtected = false;
-      if (champion.health > 0) {
+      if (champion.health > 0 && this.strength > 0) {
         champion.getDamage(this);
+      } else if (this.strength < 0) {
+        console.log('There is a problem with your Champion ! His strength cannot be negative !');
       } else {
         console.log('Champion is already dead');
       }
