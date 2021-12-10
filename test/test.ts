@@ -17,6 +17,12 @@ describe('Knigth', () => {
     expect(sorcerer.health).toBe(90);
   });
 
+  test('Attack negative', () => {
+    knight = new Knight('Aragorn', -10, 100);
+    knight.attack(sorcerer);
+    expect(sorcerer.health).toBe(90);
+  });
+
   test('Attack himself', () => {
     knight.attack(knight);
     expect(knight.health).toBe(100);
@@ -78,6 +84,12 @@ describe('Sorcerer', () => {
   });
 
   test('Attack', () => {
+    sorcerer.attack(knight);
+    expect(knight.health).toBe(90);
+  });
+
+  test('Attack negative', () => {
+    sorcerer = new Sorcerer('Gandalf', -10, 100);
     sorcerer.attack(knight);
     expect(knight.health).toBe(90);
   });
@@ -177,6 +189,12 @@ describe('Archer', () => {
     expect(sorcerer.health).toBe(90);
   });
 
+  test('Attack negative', () => {
+    archer = new Archer('Legolas', -10, 100);
+    archer.attack(sorcerer);
+    expect(sorcerer.health).toBe(90);
+  });
+
   test('Attack himself', () => {
     archer.attack(archer);
     expect(archer.health).toBe(100);
@@ -241,6 +259,12 @@ describe('Dwarf', () => {
   });
 
   test('Attack', () => {
+    dwarf.attack(archer);
+    expect(archer.health).toBe(90);
+  });
+
+  test('Attack negative', () => {
+    dwarf = new Dwarf('Gimli', -10, 100);
     dwarf.attack(archer);
     expect(archer.health).toBe(90);
   });
