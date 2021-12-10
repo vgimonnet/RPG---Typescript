@@ -62,7 +62,7 @@ let isEnded: boolean = false;
   console.log(`You're ${nbPlayers} players !`);
   // Select champion foreach player
   for (let i: number = 0; i < nbPlayers; i++) {
-    var whichChampion: any = await prompts([
+    let whichChampion: any = await prompts([
       {
         type: 'select',
         name: 'champion',
@@ -86,14 +86,14 @@ let isEnded: boolean = false;
   console.log('Let the game begins !');
   // Le jeu commence
   do { 
-    var deadChampions: number[] = [];
+    let deadChampions: number[] = [];
     for (let i: number = 0; i < champions.length; i++) {
       const myChampion: Champion = champions[i];
       if (myChampion.health <= 0) {
         deadChampions.push(i);
         console.log(`Sorry ${myChampion.name} you're dead !`);
       } else {
-        var championAction: any = await prompts([
+        let championAction: any = await prompts([
           {
             type: 'select',
             name: 'action',
@@ -103,14 +103,14 @@ let isEnded: boolean = false;
         ]);
 
         if (championAction.action === 'attack') {
-          var championICanAttack: any = [];
+          let championICanAttack: any = [];
           for (let j: number = 0; j < champions.length; j++) {
             if (j !== i) {
               championICanAttack.push({ title: champions[j].name, value: j })
             }        
           }
           
-          var championIWantAttack: any = await prompts([
+          let championIWantAttack: any = await prompts([
             {
               type: 'select',
               name: 'attack',
@@ -119,7 +119,7 @@ let isEnded: boolean = false;
             }
           ]);
 
-          var championIAttack: Champion = champions[championIWantAttack.attack];
+          let championIAttack: Champion = champions[championIWantAttack.attack];
 
           myChampion.attack(championIAttack);
           console.log(`${myChampion.name} attacked ${championIAttack.name}`);
@@ -128,14 +128,14 @@ let isEnded: boolean = false;
           myChampion.protect();
           console.log(`${myChampion.name} is ready to protect`);
         } else if (championAction.action === 'doubleAttack' && myChampion instanceof Archer) {
-          var championICanAttack: any = [];
+          let championICanAttack: any = [];
           for (let j: number = 0; j < champions.length; j++) {
             if (j !== i) {
               championICanAttack.push({ title: champions[j].name, value: j })
             }        
           }
           
-          var championIWantAttack: any = await prompts([
+          let championIWantAttack: any = await prompts([
             {
               type: 'select',
               name: 'attack',
@@ -144,7 +144,7 @@ let isEnded: boolean = false;
             }
           ]);
 
-          var championIAttack: Champion = champions[championIWantAttack.attack];
+          let championIAttack: Champion = champions[championIWantAttack.attack];
 
           myChampion.doubleAttack(championIAttack);
           console.log(`${myChampion.name} double attacked ${championIAttack.name}`);
